@@ -2,18 +2,18 @@
     "error: ext4_allocate_best_fit_partial: failed to allocate xxx blocks, out of space?": {
         "detail": {
             "Chinese-Simplified": "镜像空间不足，无法容纳所有文件",
-            "English": "The image size is too small to accommodate all files",
+            "English": "The image size is too small to fit all the files",
             "Russian": "Недостаточно места в образе для размещения всех файлов"
         },
         "Chinese-Simplified": "请增大镜像大小或清理无用文件，修改config文件夹中的_size.txt",
-        "English": "Increase image size via _size.txt in config folder",
+        "English": "Increase image size via _size.txt in the config folder",
         "Russian": "Увеличьте размер образа через файл _size.txt в папке config"
     },
 
     "error: build_directory_structure: cannot lookup security context for xxx": {
         "detail": {
             "Chinese-Simplified": "文件/文件夹缺少SELinux上下文或包含特殊字符",
-            "English": "Missing SELinux context or invalid characters in path",
+            "English": "Missing SELinux context or invalid characters in the path",
             "Russian": "Отсутствует контекст SELinux или недопустимые символы в пути"
         },
         "Chinese-Simplified": "请检查文件名是否有空格/特殊字符并重命名",
@@ -24,11 +24,11 @@
     "Partition table must have at least one entry": {
         "detail": {
             "Chinese-Simplified": "Super镜像未选择任何分区",
-            "English": "No partitions selected for Super image",
+            "English": "No partitions have been selected for the super image",
             "Russian": "Для образа Super не выбрано ни одного раздела"
         },
         "Chinese-Simplified": "请至少选择一个分区进行打包",
-        "English": "Select at least one partition in Super config",
+        "English": "Select at least one partition in super config",
         "Russian": "Выберите минимум один раздел в конфигурации Super"
     },
 
