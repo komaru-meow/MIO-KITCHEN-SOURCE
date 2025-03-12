@@ -11,16 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 import sys
 if sys.version_info.major == 3:
     if sys.version_info.minor < 8:
-        input(
-            f"Not supported: [{sys.version}] yet\nEnter to quit\nSorry for any inconvenience caused")
+        print(
+            f"Your Python version {sys.version_info.major}.{sys.version_info.minor} isn\'t supported.\nPress Enter to quit\nSorry for any inconvenience caused.")
         sys.exit(1)
 try:
     from src.tool import *
 except Exception as e:
-    input(f"Sorry! We cannot init the tool.\nPlease clone source again!\n{e}")
+    print(f"Sorry! We cannot init the tool.\nPlease clone source again!\n{e}")
     sys.exit(1)
 
 if __name__ == "__main__":
