@@ -1,6 +1,6 @@
 # Copyright (C) 2022-2025 The MIO-KITCHEN-SOURCE Project
 #
-# Licensed under theGNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License");
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
@@ -25,10 +25,9 @@ else:
 tool_bin = os.path.join(prog_path, 'bin', platform.system(), platform.machine()) + os.sep
 set_file = os.path.join(prog_path, "bin", "setting.ini")
 
-
 class Test(unittest.TestCase):
     def setUp(self):
-        print('\nStarting Test.')
+        print('\nStarting tests.')
 
     def test_import(self):
         pys = [i[:-3] for i in os.listdir(prog_path) if i.endswith('.py') and i != 'build.py']
@@ -62,15 +61,14 @@ class Test(unittest.TestCase):
 
     def test_values_files(self):
         self.assertNotEqual(v_code(), v_code())
-        self.assertIs(os.path.exists(set_file), True, 'Settings File Not Found!')
-        self.assertIs(os.access(set_file, os.F_OK), True, 'Settings File IS Not Ok!')
+        self.assertIs(os.path.exists(set_file), True, 'The settings file wasn\'t found!')
+        self.assertIs(os.access(set_file, os.F_OK), True, 'The settings file isn\'t OK!')
         config = ConfigParser()
         config.read(set_file)
-        self.assertIsNot(config.items('setting'), (None, None), 'The Setting Config Format Is Wrong!')
+        self.assertIsNot(config.items('setting'), (None, None), 'The settings config file format is wrong!')
 
     def tearDown(self):
-        print('Test Done!')
-
+        print('Tests done!')
 
 if __name__ == '__main__':
     unittest.main()
