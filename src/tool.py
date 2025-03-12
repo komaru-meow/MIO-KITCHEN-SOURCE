@@ -111,12 +111,36 @@ except ImportError:
 try:
     from .core.pycase import ensure_dir_case_sensitive
 except ImportError:
-    ensure_dir_case_sensitive = lambda *x: print(f'Cannot sensitive {x}, Not Supported')
+    ensure_dir_case_sensitive = lambda *x: print(f'Cannot enforce case sensitivity for {x}, not supported.')
 
 cwd_path = utils.prog_path
 
 if os.name == 'nt':
-    # Copy From https://github.com/littlewhitecloud/CustomTkinterTitlebar/
+    # Copied from https://github.com/littlewhitecloud/CustomTkinterTitlebar/
+    # PR maker notice: You must include the MIT license text when using MIT licensed code.
+    #
+    # MIT License
+
+    # Copyright (c) 2023-2025 littlewhitecloud
+    
+    # Permission is hereby granted, free of charge, to any person obtaining a copy
+    # of this software and associated documentation files (the "Software"), to deal
+    # in the Software without restriction, including without limitation the rights
+    # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    # copies of the Software, and to permit persons to whom the Software is
+    # furnished to do so, subject to the following conditions:
+    
+    # The above copyright notice and this permission notice shall be included in all
+    # copies or substantial portions of the Software.
+    
+    # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    # SOFTWARE.
+
     def set_title_bar_color(window, dark_value:int=20):
         window.update()
         DWMWA_USE_IMMERSIVE_DARK_MODE = dark_value
@@ -189,7 +213,7 @@ class LoadAnim:
             task_real = threading.Thread(target=func, args=args, kwargs=kwargs, daemon=True)
             info = [func.__name__, args, task_real]
             if task_num in self.tasks:
-                print(f"The Same task_num {task_num} was used by {task_real.native_id} with args {info[2]}...\n")
+                print(f"The same task_num ({task_num}) was used by {task_real.native_id} with args {info[2]}...\n")
                 return
             else:
                 self.tasks[task_num] = info
@@ -202,7 +226,6 @@ class LoadAnim:
                 self.stop()
 
         return call_func
-
 
 def warn_win(text: str = '', color: str = 'orange', title: str = "Warn", wait: int = 1500):
     ask = ttk.LabelFrame(win)
@@ -2612,7 +2635,7 @@ class PackHybridRom:
         if not os.path.exists(dir_ + "images"):
             os.makedirs(dir_ + 'images')
         if os.path.exists(os.path.join(project_manger.current_work_output_path(), 'payload.bin')):
-            print("Found payload.bin ,Stop!")
+            print("Found payload.bin, aborting!")
             return
         if os.path.exists(dir_ + 'META-INF'):
             rmdir(dir_ + 'META-INF')
@@ -3047,14 +3070,14 @@ def unpack_boot(name: str = 'boot', boot:str=None, work:str=None):
         if comp != "unknown":
             os.rename(f"{work}/{name}/ramdisk.cpio", f"{work}/{name}/ramdisk.cpio.comp")
             if call(["magiskboot", "decompress", f'{work}/{name}/ramdisk.cpio.comp', f'{work}/{name}/ramdisk.cpio']) != 0:
-                print("Failed to decompress Ramdisk...")
+                print("Failed to decompress ramdisk.")
                 return
         if not os.path.exists(f"{work}/{name}/ramdisk"):
             os.mkdir(f"{work}/{name}/ramdisk")
-        print("Unpacking Ramdisk...")
+        print("Unpacking ramdisk...")
         cpio_extract(os.path.join(work , name, 'ramdisk.cpio'), os.path.join(work , name, 'ramdisk'), os.path.join(work , name, 'ramdisk.txt'))
     else:
-        print("Unpack Done!")
+        print("Unpacking done!")
     os.chdir(cwd_path)
 
 
@@ -3078,7 +3101,7 @@ def dboot(name: str = 'boot', source: str = None, boot: str = None):
         os.chdir(source)
         if comp != "unknown":
             if call(['magiskboot', f'compress={comp}', 'ramdisk-new.cpio']) != 0:
-                print("Failed to pack Ramdisk...")
+                print("Failed to pack new ramdisk.")
                 os.remove("ramdisk-new.cpio")
             else:
                 try:
@@ -3095,10 +3118,10 @@ def dboot(name: str = 'boot', source: str = None, boot: str = None):
         print(f"Ramdisk Compression:{comp}")
         if comp == "unknown":
             flag = "-n"
-        print("Successfully packed Ramdisk..")
+        print("Successfully packed ramdisk.")
     os.chdir(source)
     if call(['magiskboot', 'repack', flag, boot]) != 0:
-        print("Failed to Pack boot...")
+        print("Failed to pack boot.")
     else:
         os.remove(boot)
         os.rename(source + "/new-boot.img", project_manger.current_work_output_path() + f"/{name}.img")
@@ -4675,7 +4698,7 @@ class ParseCmdline:
         args = parser.parse_args(arglist)
         if not args.workdir or not args.outputdir \
                 or not os.path.exists(args.workdir) or not os.path.exists(args.outputdir):
-            cprint("Workdir or Output Dir Not Exist!")
+            cprint("The workdir or output directory does not exist!")
             return
 
 
