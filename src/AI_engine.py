@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 import os.path
 from difflib import SequenceMatcher
 from tkinter import Toplevel, ttk, BOTH
@@ -34,8 +35,8 @@ def suggest(string: str = '', language='English', ok='ok'):
     similarity = 0
     window = Toplevel()
     window.resizable(False, False)
-    window.title("AI ENGINE")
-    text = f"No idea about:\n\t{string}\nPlease Report It To us."
+    window.title("AI engine")
+    text = f"No idea about:\n\t{string}.\nPlease make a new issue on the GitHub repository."
     detail = 'Unknown'
     if string:
         for i in library.keys():
