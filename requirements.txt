@@ -6,7 +6,6 @@ sv_ttk
 pyinstaller==6.11.1
 chlorophyll
 future
-pip
 Pygments
 zstandard
 asn1crypto
@@ -15,3 +14,4 @@ wmi
 httpx
 cryptography
 toml
+tk
