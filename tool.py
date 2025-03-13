@@ -16,12 +16,12 @@ import sys
 if sys.version_info.major == 3:
     if sys.version_info.minor < 8:
         print(
-            f"Your Python version {sys.version_info.major}.{sys.version_info.minor} isn\'t supported.\nPress Enter to quit\nSorry for any inconvenience caused.")
+            f"Your Python version {sys.version_info.major}.{sys.version_info.minor} isn\'t supported.\nPlease upgrade your Python version before continuing.")
         sys.exit(1)
 try:
     from src.tool import *
 except Exception as e:
-    print(f"Sorry! We cannot init the tool.\nPlease clone source again!\n{e}")
+    print(f"The tool\'s files are missing.\nPlease redownload the tool.\n\n{e}")
     sys.exit(1)
 
 if __name__ == "__main__":
