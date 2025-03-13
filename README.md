@@ -1,10 +1,10 @@
 > [!IMPORTANT]
-> We Are Rewriting The Project.This project has currently stopped updating!
-> But we will still accept bug fixes and pull requests 
-# MIO-KITCHEN-SOURCE #
+> We are rewriting the project. This project has currently stopped updating!
+> But we will still accept bug fixes and pull requests.
+# MIO-KITCHEN-SOURCE
 ![Banner](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE/blob/a9bcfdf613ad28e82f7899e3d420d76ecfea174c/splash.png)
-#### A Rom Tool Written in Python
-##### The Best Free And Open Source Rom Tool For You
+#### A ROM Tool Written in Python
+##### The best free and open source ROM tool for you
 > [!CAUTION]
 > Unauthorized commercial use prohibited
 ***
@@ -19,80 +19,76 @@
 ***
 ## Advantages
 * Automatic fs_config and fs_context patch
-* GUI graphical interface
+* A GUI to work with
 * A graphical plugin manager, plus an editor for plugin script editing. Support plugin installing and exporting
 * Quick updates, secure, stable and fast
 * Unique MSH interpreter that supports running MSH scripts
 * Provide backward compatibility with Android 8 and lower and create .img for these versions
-* Use mkc file choose api on Linux, making it easier to use
+* Use mkc file choose API on Linux, making it easier to use
 ***
-## Supported Os
+## Supported operating systems
 
-|   Os    | Arch                             |
+|   OS    | Architecture                     |
 |:-------:|----------------------------------|
-|  Linux  | x86_64 arm64                     |
-| Windows | x86_64 x86 amd64 arm64(by sewzj) |
-|  Macos  | Arm64  X86                       |
+|  Linux  | x86_64 ARM64                     |
+| Windows | x86_64 x86 AMD64 ARM64 (by sewzj)|
+|  Macos  | ARM64  X86                       |
 ## Supported Image Types
 | Supported Image Types     |
 |---------------------------|
 | Android Boot Image        |
 | Android Recovery Image    |
 | Android Vendor_boot Image |
-| Erofs                     |
-| Ext4                      |
-| F2fs(Linux Version)       |
-| Romfs                     |
-| Payload                   |
+| EROFS                     |
+| EXT4                      |
+| F2FS (Linux Version)      |
+| ROMFS                     |
+| Payloads (payload.bin)    |
 ## Supported File Types
 | Supported File Types |
 |----------------------|
-| Zip                  |
+| zip                  |
 | ops                  |
 | Ozip                 |
 | tar.md5              |
 | kdz/dz               |
 | ofp                  |
 | tar.gz               |
-## Start To Use
+## Install requirements
 > [!NOTE]
-> Currently Only Support Python 3.8 and Newer!
+> Currently only supports Python 3.8 and newer!
 ### Prerequisites
 <details><summary>macOS</summary>
 
-```` shell
-brew install python-tk python3  tcl-tk
-python3 -m pip install -U --force-reinstall pip
+```bash
+brew install python-tk python3 tcl-tk
 pip install -r requirements.txt
-````
+```
 
 </details>
 
 <details><summary>Linux</summary>
 
-```` shell
-python3 -m pip install -U --force-reinstall pip
+```bash
 pip install -r requirements.txt
-sudo apt update -y && sudo apt install python3-tk -y
-````
+```
 
 </details>
 
 <details><summary>Windows</summary>
 
-```` shell
-python -m pip install -U --force-reinstall pip
+```bash
 pip install -r requirements.txt
-````
+```
 
 </details>
 
 ### Get started
-```` shell
+```bash
 python tool.py
 # To create a binary distribution, you could:
 python build.py
-````
+```
 ***
 # Contact Us
 ***
